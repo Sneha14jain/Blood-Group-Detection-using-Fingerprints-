@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>AI Blood Group Detection System</title>
+
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+body{
+height:100vh;
+margin:0;
+font-family:Arial;
+background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+display:flex;
+align-items:center;
+justify-content:center;
+color:white;
+animation:fadeIn 0.8s ease-in;
+}
+
+@keyframes fadeIn{
+from{opacity:0;transform:translateY(10px);}
+to{opacity:1;transform:translateY(0);}
+}
+
+.main-container{
+width:90%;
+max-width:1100px;
+display:flex;
+border-radius:15px;
+overflow:hidden;
+box-shadow:0 15px 40px rgba(0,0,0,0.5);
+}
+
+.left-panel{
+flex:1;
+background:rgba(0,0,0,0.25);
+padding:60px;
+display:flex;
+flex-direction:column;
+justify-content:center;
+position:relative;
+}
+
+.logo-section{
+display:flex;
+align-items:center;
+gap:15px;
+margin-bottom:20px;
+}
+
+.logo-section i{
+font-size:40px;
+color:#4bc0c0;
+}
+
+.feature{
+margin:10px 0;
+font-size:16px;
+}
+
+.fingerprint-bg{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+font-size:220px;
+color:rgba(255,255,255,0.05);
+animation:glow 4s infinite alternate;
+}
+
+@keyframes glow{
+from{opacity:0.2;}
+to{opacity:0.5;}
+}
+
+.right-panel{
+flex:1;
+background:white;
+padding:50px;
+color:#333;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.login-box{
+border:2px solid #e3e7ee;
+border-radius:10px;
+padding:35px;
+background:#f8fafc;
+box-shadow:0 5px 20px rgba(0,0,0,0.1);
+width:100%;
+max-width:350px;
+}
+
+.login-box h3{
+text-align:center;
+margin-bottom:25px;
+}
+
+.form-control{
+border-radius:8px;
+}
+
+.login-btn{
+background:#2c5364;
+border:none;
+transition:0.3s;
+}
+
+.login-btn:hover{
+background:#203a43;
+transform:scale(1.02);
+}
+
+.footer{
+position:absolute;
+bottom:10px;
+width:100%;
+text-align:center;
+font-size:14px;
+color:#ddd;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="main-container">
+
+<!-- LEFT PANEL -->
+
+<div class="left-panel">
+
+<div class="fingerprint-bg">
+<i class="fas fa-fingerprint"></i>
+</div>
+
+<div class="logo-section">
+<i class="fas fa-brain"></i>
+<h2>AI Blood Group Detection</h2>
+</div>
+
+<div class="feature">
+<i class="fas fa-brain"></i> AI Powered Prediction
+</div>
+
+<div class="feature">
+<i class="fas fa-fingerprint"></i> Fingerprint Analysis
+</div>
+
+<div class="feature">
+<i class="fas fa-database"></i> Secure Patient Records
+</div>
+
+<div class="feature">
+<i class="fas fa-chart-pie"></i> Analytics Dashboard
+</div>
+
+</div>
+
+
+<!-- RIGHT PANEL -->
+
+<div class="right-panel">
+
+<div class="login-box">
+
+<h3>System Login</h3>
+
+<form method="post" onsubmit="showLoader()">
+
+{% csrf_token %}
+
+<input
+type="text"
+name="username"
+class="form-control mb-3"
+placeholder="Username"
+required>
+
+<input
+type="password"
+name="password"
+class="form-control mb-3"
+placeholder="Password"
+required>
+
+<button class="btn btn-primary w-100 login-btn">
+Login
+</button>
+
+</form>
+
+<div id="loader" style="display:none;text-align:center;margin-top:15px">
+
+<div class="spinner-border text-primary"></div>
+
+<p>Authenticating user...</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="footer">
+
+AI Fingerprint Blood Group Detection System • Major Project
+
+</div>
+
+<script>
+
+function showLoader(){
+document.getElementById("loader").style.display="block";
+}
+
+</script>
+
+</body>
+
+</html>
